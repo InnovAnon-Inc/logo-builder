@@ -1,12 +1,14 @@
 FROM innovanon/builder as builder
-COPY ./dpkg.list  \
+COPY ./dpkg.list                     \
      ./policy.sed /tmp/
-RUN apt update                      \
- && apt full-upgrade                \
- && test -x       /tmp/dpkg.list    \
- && apt install $(/tmp/dpkg.list)   \
- && rm -v         /tmp/dpkg.list    \
- && /tmp/policy.sed -i              \
-      /etc/ImageMagick-6/policy.xml \
- && rm -v         /tmp/policy.sed
+RUN sleep 31                         \
+ && apt update                       \
+ && apt full-upgrade                 \
+ && test -x       /tmp/dpkg.list     \
+ && apt install $(/tmp/dpkg.list)    \
+ && test -x       /tmp/policy.sed    \
+ &&               /tmp/policy.sed -i \
+    /etc/ImageMagick-6/policy.xml    \
+ && rm -v         /tmp/dpkg.list     \
+                  /tmp/policy.sed
 

@@ -4,6 +4,8 @@ caca-utils
 imagemagick
 lrzip
 makeself
+outguess
+steghide
 shellcheck
 git
 zpaq
