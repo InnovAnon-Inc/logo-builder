@@ -12,3 +12,6 @@ RUN sleep 31                         \
  && rm -v         /tmp/dpkg.list     \
                   /tmp/policy.sed
 
+FROM scratch as squash
+COPY --from=builder / /
+
