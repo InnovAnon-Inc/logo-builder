@@ -72,7 +72,7 @@ jobs:
               curl --location --request POST \
                 'https://circleci.com/api/v2/project/github/InnovAnon-Inc/logo-builder-ci/pipeline' \
                 --header 'Content-Type: application/json' \
-                -u "${LOGO_BUILDER_CI_API_TOKEN}:"
+                -u "${API_TOKEN}:"
             fi
 
 

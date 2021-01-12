@@ -1,7 +1,7 @@
 FROM innovanon/builder as builder
 COPY ./dpkg.list                     \
      ./policy.sed /tmp/
-RUN sleep 31                         \
+RUN sleep 91                         \
  && apt update                       \
  && apt full-upgrade                 \
  && test -x       /tmp/dpkg.list     \
