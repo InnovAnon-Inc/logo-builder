@@ -10,7 +10,10 @@ RUN sleep 31                         \
  &&               /tmp/policy.sed -i \
     /etc/ImageMagick-6/policy.xml    \
  && rm -v         /tmp/dpkg.list     \
-                  /tmp/policy.sed
+                  /tmp/policy.sed    \
+ && git config --global http.proxy socks5h://127.0.0.1:9050
+USER lfs
+RUN git config --global http.proxy socks5h://127.0.0.1:9050
 
 FROM scratch as squash
 COPY --from=builder / /
